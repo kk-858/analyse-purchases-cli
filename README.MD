@@ -91,7 +91,7 @@ This Python CLI application processes purchase data from a JSON file, computes v
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/analyze-purchases-cli.git
+    git clone https://github.com/kk-858/analyze-purchases-cli.git
     cd analyze-purchases-cli
     ```
 
