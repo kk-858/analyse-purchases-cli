@@ -2,7 +2,8 @@ import click
 import json
 from .calculations import calculate_statistics
 
-def validate_json_structure(data)->None:
+
+def validate_json_structure(data) -> None:
     """
     Validate the structure of the input JSON data.
     Raises a ValueError if the validation fails.
@@ -14,7 +15,7 @@ def validate_json_structure(data)->None:
     raise ValueError("Input data should be a JSON object.")
 
 
-def validate_purchase(purchase:dict)->None:
+def validate_purchase(purchase: dict) -> None:
     """
     Validate a single purchase entry in the JSON data.
     Raises a ValueError if the validation fails.
@@ -35,7 +36,8 @@ def validate_purchase(purchase:dict)->None:
     for item in purchase["items"]:
         validate_item(item)
 
-def validate_item(item:dict)->None:
+
+def validate_item(item: dict) -> None:
     """
     Validate a single item within a purchase in the JSON data.
     Raises a ValueError if the validation fails.
@@ -62,6 +64,7 @@ def validate_item(item:dict)->None:
     if float(item["price"]) <= 0:
         raise ValueError("Price per unit must be greater than zero.")
 
+
 def load_and_validate_json(file_stream):
     """
     Load the JSON file and validate its structure and content.
@@ -75,9 +78,10 @@ def load_and_validate_json(file_stream):
     validate_json_structure(data)
     return data
 
+
 @click.command()
 @click.argument('input_file', type=click.File('r'))
-def analyze_purchases(input_file)->None:
+def analyze_purchases(input_file) -> None:
     """
     Analyze the json file
     :param input_file:
